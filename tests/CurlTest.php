@@ -12,7 +12,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
 
   protected $curl;
 
-  protected $mockUrl = 'http://demo1875040.mockable.io/';
+  protected $mockUrl = 'http://demo2650607.mockable.io/';
 
   private $_testUrls = [
     [
@@ -133,6 +133,11 @@ class CurlTest extends PHPUnit_Framework_TestCase
   {
     $result = $this->curl->delete($this->mockUrl.'/delete-test');
     $this->assertEquals($result, 'delete-success');
+  }
+  
+  public function testJson() {
+      $result = $this->curl->json($this->mockUrl.'/json-test', '{"msg":"send-data"}');
+      $this->assertEquals($result, '{"msg":"json-success"}');
   }
 
   public function testGetHeaders()
